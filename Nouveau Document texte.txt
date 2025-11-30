@@ -1,0 +1,28 @@
+Start
+    Initialize len ← 0
+    Initialize words ← 1
+    Initialize vowels ← 0
+
+    Read ch
+
+    While ch ≠ '.'
+        Increment len
+
+        If ch = ' ' then
+            Increment words
+        EndIf
+
+        If ch is a vowel (a, e, i, o, u, A, E, I, O, U) then
+            Increment vowels
+        EndIf
+
+        Read next ch
+    EndWhile
+
+    Increment len    // count the dot
+    // words does NOT increase when reading '.'
+
+    Display len
+    Display words
+    Display vowels
+End
