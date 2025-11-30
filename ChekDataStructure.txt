@@ -1,0 +1,111 @@
+Algorithm DistinctSum
+    Input: A[1..n1], B[1..n2]    // two arrays
+    Output: sum
+
+    sum ← 0
+
+    // ---- Step 1: elements in A but not in B ----
+    For i ← 1 to n1
+        found ← false
+        For j ← 1 to n2
+            If A[i] = B[j] then
+                found ← true
+            EndIf
+        EndFor
+
+        If found = false then
+            sum ← sum + A[i]
+        EndIf
+    EndFor
+
+    // ---- Step 2: elements in B but not in A ----
+    For j ← 1 to n2
+        found ← false
+        For i ← 1 to n1
+            If B[j] = A[i] then
+                found ← true
+            EndIf
+        EndFor
+
+        If found = false then
+            sum ← sum + B[j]
+        EndIf
+    EndFor
+
+    Output sum
+End
+///////////////
+///////////////
+Procedure dot_product(v1, v2, n, ps)  
+
+    ps ← 0
+
+    For i ← 1 to n
+        ps ← ps + v1[i] * v2[i]
+    EndFor
+EndProcedure
+//////////////
+//////////
+Algorithm CheckOrthogonality
+    Input: number_of_pairs
+
+    For k ← 1 to number_of_pairs
+        Read n
+        Declare v1[1..n], v2[1..n]
+
+        // Read vectors
+        For i ← 1 to n
+            Read v1[i]
+        EndFor
+        
+        For i ← 1 to n
+            Read v2[i]
+        EndFor
+
+        // Call procedure
+        Call dot_product(v1, v2, n, ps)
+
+        If ps = 0 then
+            Output "Vectors are orthogonal"
+        Else
+            Output "Vectors are NOT orthogonal"
+        EndIf
+    EndFor
+End
+//////////////
+//////////////
+Function dot_product(v1, v2, n) returns real
+    ps ← 0
+    For i ← 1 to n
+        ps ← ps + v1[i] * v2[i]
+    EndFor
+
+    Return ps
+EndFunction
+////////////
+////////////
+Algorithm CheckOrthogonality_Function
+
+    Read number_of_pairs
+
+    For k ← 1 to number_of_pairs
+        Read n
+        Declare v1[1..n], v2[1..n]
+
+        For i ← 1 to n
+            Read v1[i]
+        EndFor
+
+        For i ← 1 to n
+            Read v2[i]
+        EndFor
+
+        ps ← dot_product(v1, v2, n)
+
+        If ps = 0 then
+            Output "Vectors are orthogonal"
+        Else
+            Output "Vectors are NOT orthogonal"
+        EndIf
+    EndFor
+End
